@@ -10,7 +10,7 @@ const ReviewsList = ({ reviews }) => {
     <section className="review-list-section">
       <div className="row">
         <div className="col-12">
-          <Heading level={5} size={5}>
+          <Heading level={5}>
           Reviews  List
           </Heading>
         </div>

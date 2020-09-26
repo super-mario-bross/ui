@@ -6,14 +6,14 @@ import {
 } from 'grommet';
 import "./index.scss";
 
-const Review = ({ title, description, author, rating, isHelpful, isNotHelpful }) => {
+const Review = ({ title, reviewDesc, author, rating, isHelpful, isNotHelpful, reviewId }) => {
   return (
     <div className="review-wrapper p-2">
       <div className="row">
         <div className="col-12">
           <h5 className="title">{title}</h5>
-          <p className="description">{description}</p>
-          <h6 className="author">{author}</h6>
+          <p className="description">{reviewDesc}</p>
+          <h6 className="author">Author ID: {author}</h6>
           <div className="rating">
             <ReviewStars reviewRate={rating} changeRating={() => { }} />
           </div>
@@ -43,8 +43,8 @@ const Review = ({ title, description, author, rating, isHelpful, isNotHelpful })
 Review.propTypes = {
   rating: PropTypes.number,
   title: PropTypes.string,
-  description: PropTypes.string,
-  author: PropTypes.string,
+  reviewDesc: PropTypes.string,
+  author: PropTypes.number,
   isHelpful: PropTypes.number,
   isNotHelpful: PropTypes.number
 };
@@ -52,10 +52,11 @@ Review.propTypes = {
 Review.defaultProps = {
   rating: 0,
   title: '',
-  description: '',
-  author: '',
+  reviewDesc: '',
+  author: 0,
   isHelpful: 0,
-  isNotHelpful: 0
+  isNotHelpful: 0,
+  reviewId: ''
 };
 
 

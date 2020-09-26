@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { useParams } from "react-router-dom";
 import {
   Box,
   Button,
@@ -21,6 +22,7 @@ const AddReviewRatingsForm = ({
   const [title, setTitle] = useState('');
   const [reviewDesc, setReviewDesc] = useState('');
   const [rating, setRating] = useState(0);
+  const { productId } = useParams();
 
   const postReviewRating = async ({ entity,
     author,
@@ -58,7 +60,8 @@ const AddReviewRatingsForm = ({
     e.preventDefault();
     const data = {
       entity: entity.trim(),
-      author: author.trim(),
+      // author: author.trim(),
+      author: 1,
       title: title.trim(),
       reviewDesc: reviewDesc.trim(),
       rating
@@ -76,8 +79,8 @@ const AddReviewRatingsForm = ({
           <h5>Please rate this product</h5>
         </div>
         <div className="col-12">
-          <Box fill align="left" justify="center">
-            <Box width="medium">
+          <Box fill align="start" justify="center">
+            <Box width="large">
               <Form
                 onSubmit={onSubmit}
               >

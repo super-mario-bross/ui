@@ -10,19 +10,28 @@ const AllReviewsPage = () => {
     filterValues,
     currentFilter,
     onChangeFilter,
-    reviews = []
+    reviews = [],
+    paginationInfo,
+    basicInfo
   } = useRatingsReviewsHook({ entityId: productId });
-
   return (
     <div className="container">
-    <Box fill>
-      <Box direction='row'>
-        <Box flex align='left' justify='left'>
-          {productId}
-          <ReviewsRatingSection reviews={reviews} onChangeFilter={onChangeFilter} filterValues={filterValues} currentFilter={currentFilter} />
+      <Box fill>
+        <Box direction='row'>
+          <Box flex align='start'>
+            ID: {productId}
+            <ReviewsRatingSection
+              paginationInfo={paginationInfo}
+              basicInfo={basicInfo}
+              reviews={reviews}
+              onChangeFilter={onChangeFilter}
+              filterValues={filterValues}
+              currentFilter={currentFilter}
+              isPagination={true}
+            />
+          </Box>
         </Box>
-      </Box>
-    </Box >
+      </Box >
     </div>
   );
 };

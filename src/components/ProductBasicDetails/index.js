@@ -13,7 +13,7 @@ const ProductBasicDetails = ({ productId }) => {
         background={"#fff"}
 
       >
-        <Box width="medium" align="left" gap="medium" margin="small">
+        <Box width="medium" align="start" gap="medium" margin="small">
           <div className="product-img-wrapper">
             <img
               src="https://rukminim1.flixcart.com/image/416/416/k9loccw0/mobile/p/z/q/apple-iphone-se-mxd02hn-a-original-imafrcpjfehbbqgb.jpeg?q=70"
@@ -23,10 +23,10 @@ const ProductBasicDetails = ({ productId }) => {
             />
           </div>
         </Box>
-        <Box flex align="left" margin="small">
+        <Box flex align="start" margin="small">
           <div className="product-info">
             <h6 className="font-weight-light">APPLE</h6>
-            <Heading level={2} size={2}>
+            <Heading level={2}>
               Smartphone iPhone SE 64GB
           </Heading>
             <p>Product ID: {productId}</p>

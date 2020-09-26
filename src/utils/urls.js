@@ -8,7 +8,7 @@ export const getRatingsReviewsUrl = ({
   offset = 1,
   sortkey = 'rating',
   sortOrder = 'DESC',
-  filterByRating = filterOptions[3].value
+  filterByRating = 5
 }) => {
   return `${baseApiUrl}reviewAndRatings?entity_id=${entityId}&limit=${limit}&offset=${offset}&sort_key=${sortkey}&sort_order=${sortOrder}&filterByRating=${filterByRating}`;
 };
@@ -17,5 +17,5 @@ export const getRatingsReviewsUrl = ({
 export const getPostRatingsReviewsUrl = (
   baseUrl,
 ) => {
-  return `${baseApiUrl}`;
+  return `${baseApiUrl}reviewAndRatings`;
 };

@@ -6,8 +6,7 @@ import { doFetch } from "../utils/Fetch/Fetch";
 import { getRatingsReviewsUrl } from '../utils/urls';
 import { filterValues, filterDisplayValues } from '../constants';
 
-const fetchReviewsAndRatings = ({ entityId, limit, offset, sortkey, sortOrder, filterByRating } ) => {
-  let reviews = [];
+const fetchReviewsAndRatings = ({ entityId, limit, offset, sortkey, sortOrder, filterByRating }) => {
   const url = getRatingsReviewsUrl({
     entityId,
     limit,
@@ -24,10 +23,13 @@ const fetchReviewsAndRatings = ({ entityId, limit, offset, sortkey, sortOrder, f
       paginationInfo,
       summaryData
     } = responseData;
-    reviews = reviewAndRatingsInfo;
+    return {
+      reviewAndRatingsInfo,
+      paginationInfo,
+      summaryData
+    };
   }
-
-  return reviews;
+  return {};
 };
 
 const getSortValues = (filter) => {
@@ -36,26 +38,41 @@ const getSortValues = (filter) => {
 }
 
 const useRatingsReviewsHook = ({ entityId }) => {
-  // const { entityId } = useParams();
-  const [currentFilter, setFilter] = useState(filterDisplayValues[filterDisplayValues.length-1]);
-  // const [reviews, setReviews] = useState([]);
+  const [currentFilter, setFilter] = useState(filterDisplayValues[filterDisplayValues.length - 1]);
+  const [filterByRating, setFilterByRating] = useState(5);
+  const [offset, setFilterOffset] = useState(0);
   const currentSortValue = getSortValues(currentFilter);
-  const reviews = fetchReviewsAndRatings({ entityId, sortkey: currentSortValue.sort_key, sortOrder: currentSortValue.sort_order});
+  const ratingsAndReviewResponseData = fetchReviewsAndRatings({
+    entityId,
+    offset,
+    filterByRating,
+    sortkey: currentSortValue.sort_key,
+    sortOrder: currentSortValue.sort_order
+  });
+
+  const {
+    reviewAndRatingsInfo: reviews = [],
+    paginationInfo = {},
+    summaryData = []
+  } = ratingsAndReviewResponseData;
 
   const onChangeFilter = (value) => {
     setFilter(value);
   };
 
-  // useEffect(() => {
-  //   const newreviews = fetchReviewsAndRatings(entityId);
-  //   setReviews(newreviews);
-  // }, [currentFilter]);
-
   return {
     filterValues: filterDisplayValues,
     currentFilter,
     onChangeFilter,
-    reviews
+    reviews,
+    paginationInfo: {
+      ...paginationInfo,
+      offset,
+      setFilterOffset
+    },
+    filterByRating,
+    setFilterByRating,
+    basicInfo: summaryData[0]
   };
 };
 
