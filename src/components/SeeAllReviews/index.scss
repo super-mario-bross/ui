@@ -1,0 +1,14 @@
+.see-all-reviews-link {
+  .see-all-link {
+    background-color: #1e4d9d;
+    color: #fff;
+    width: 100%;
+    border-radius: 18px;
+    padding: 10px 20px;
+    &:hover, &:focus {
+      background-color: #275fbe;
+      color: #fff;
+      text-decoration: none;
+    }
+  }
+}

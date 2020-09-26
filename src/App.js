@@ -2,29 +2,34 @@ import React from "react";
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
+import { Grommet } from 'grommet';
 import NavBar from './components/NavBar';
 import HomePage from './containers/HomePage';
-import AboutPage from './containers/AboutPage';
+import AllReviewsPage from './containers/AllReviewsPage';
+import AboutTeamPage from './containers/AboutTeamPage';
+import appThemeConfig from './utils/themeConfig';
 
 export default function App() {
   return (
     <Router>
-      <div>
-      <NavBar />
+      <Grommet theme={appThemeConfig} background="#f0f3f6">
+        <NavBar />
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
-          <Route path="/about">
-            <AboutPage />
+          <Route path="/team">
+            <AboutTeamPage />
           </Route>
-          <Route path="/">
+          <Route path="/:productId/allreviews">
+            <AllReviewsPage />
+          </Route>
+          <Route path="/:productId">
             <HomePage />
           </Route>
         </Switch>
-      </div>
+      </Grommet>
     </Router>
   );
 }

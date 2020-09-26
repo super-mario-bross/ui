@@ -1,0 +1,21 @@
+.product-img-wrapper {
+  min-height: 500px;
+  border: 1px solid #ccc;
+}
+
+.product-img {
+  display: block;
+  margin: 0 auto;
+}
+
+.img-responsive {
+  max-width: 100%;
+  height: auto;
+  width: auto;
+}
+
+.product-info {
+  .price {
+    color: #e4022d;
+  }
+}

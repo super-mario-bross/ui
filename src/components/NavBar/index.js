@@ -1,18 +1,28 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Box, Button, Heading, Grommet } from 'grommet';
+// import { NavLink } from 'react-router-dom';
+import "./index.scss";
+
+const AppBar = (props) => (
+  <Box
+    tag='header'
+    direction='row'
+    align='center'
+    justify='between'
+    background='brand'
+    pad={{ left: 'small', right: 'small', vertical: 'small' }}
+    margin={{ bottom: 'small' }}
+    elevation='medium'
+    style={{ zIndex: '1' }}
+    {...props}
+  />
+);
 
 const NavBar = () => {
   return (
-    <nav>
-      <ul>
-        <li>
-        <Link to="/">Home</Link>
-        </li>
-        <li>
-        <Link to="/about">About</Link>
-        </li>
-      </ul>
-    </nav>
+    <AppBar>
+      <Heading level='4' margin='none'>Super Mario Bros - Modern Reviews & Ratings System</Heading>
+    </AppBar>
   );
 };
 
