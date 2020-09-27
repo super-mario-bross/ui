@@ -16,7 +16,7 @@ const fetchReviewsAndRatings = ({ entityId, limit, offset, sortkey, sortOrder, f
     filterByRating
   });
   const { data: responseData } = useSWR(url, doFetch, swrOptions);
-  console.log(responseData);
+
   if (responseData) {
     const {
       reviewAndRatingsInfo,
@@ -57,6 +57,7 @@ const useRatingsReviewsHook = ({ entityId }) => {
   } = ratingsAndReviewResponseData;
 
   const onChangeFilter = (value) => {
+    setFilterOffset(0);
     setFilter(value);
   };
 

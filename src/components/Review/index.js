@@ -8,16 +8,19 @@ import "./index.scss";
 
 const Review = ({ title, reviewDesc, author, rating, isHelpful, isNotHelpful, reviewId }) => {
   return (
-    <div className="review-wrapper p-2">
+    <div className="review-wrapper p-2 pb-3">
       <div className="row">
         <div className="col-12">
           <h5 className="title">{title}</h5>
           <p className="description">{reviewDesc}</p>
           <h6 className="author">Author ID: {author}</h6>
           <div className="rating">
-            <ReviewStars reviewRate={rating} changeRating={() => { }} />
+            <ReviewStars
+            maximumCount={5}
+            reviewRate={rating}
+            />
           </div>
-          <div>
+          <div className="pt-2">
             <small>
               Was this comment helpful to you?
               <span className="helpful-button">

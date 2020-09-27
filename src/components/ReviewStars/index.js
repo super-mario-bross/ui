@@ -1,23 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import StarRatings from 'react-star-ratings';
+import Ratings from 'react-ratings-declarative';
+// import StarRatings from 'react-star-ratings';
 import './index.scss';
 
 const ReviewStars = ({ reviewRate, reviewCount, maximumCount, changeRating, showFraction }) => {
   return (
     <div className="d-inline">
-      { showFraction && <p className="d-inline align-middle fraction m-0">{reviewRate}/{maximumCount}</p>}
-      <StarRatings
+      { showFraction && <p className="d-inline align-middle fraction m-0 font-weight-bold">{reviewRate}/{maximumCount}</p>}
+      <Ratings
         rating={reviewRate}
-        starRatedColor='rgb(109, 122, 130)'
-        starEmptyColor='rgb(203, 211, 227)'
-        starHoverColor='rgb(230, 67, 47)'
-        starDimension='20px'
-        starSpacing='5px'
+        widgetRatedColors="#f8bf01"
+        widgetDimensions="18px"
+        widgetSpacings="4px"
         changeRating={changeRating}
-        numberOfStars={maximumCount}
-        name='rating'
-      />
+      >
+        <Ratings.Widget />
+        <Ratings.Widget />
+        <Ratings.Widget />
+        <Ratings.Widget />
+        <Ratings.Widget />
+      </Ratings>
       { reviewCount && <p className="d-inline align-middle review-count m-0">({reviewCount})</p>}
     </div>
   );
@@ -36,7 +39,7 @@ ReviewStars.defaultProps = {
   reviewRate: 0,
   reviewCount: 0,
   showFraction: false,
-  changeRating: () => { }
+  changeRating: false
 };
 
 export default ReviewStars;

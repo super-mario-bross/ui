@@ -16,8 +16,7 @@ const HomePage = () => {
     paginationInfo,
     basicInfo
   } = useRatingsReviewsHook({ entityId: productId });
-  console.log("hhome", reviews, paginationInfo,
-    basicInfo);
+
   return (
     <div className="container">
       <Box fill>

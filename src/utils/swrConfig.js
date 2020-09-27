@@ -1,5 +1,5 @@
 const swrOptions = {
-  revalidateOnFocus: false,
+  revalidateOnFocus: false
 };
 
 export default swrOptions;

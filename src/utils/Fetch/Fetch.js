@@ -26,7 +26,7 @@ const doFetch = async (url, options = {}) => {
 const doPost = async (url, body, options) => {
   try {
     const response = await fetch(url, {
-      method: 'post',
+      method: 'POST',
       body: JSON.stringify(body),
       headers: {
         'Content-Type': 'application/json',

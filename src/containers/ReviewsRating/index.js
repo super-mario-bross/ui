@@ -64,11 +64,10 @@ const ReviewsRating = ({
             maximumCount={5}
             reviewRate={avgRating}
             reviewCount={totalReviews}
-            changeRating={() => { }}
           />
-          <p>No. of Positive Sentiments: {positiveSentiments}</p>
-          <p>No. of Netural Sentiments: {neutralSentiments}</p>
-          <p>No. of Negative Sentiments: {negativeSentiments}</p>
+          <p className="pt-2 mb-0">No. of Positive Sentiments: {positiveSentiments}</p>
+          <p className="mb-0">No. of Netural Sentiments: {neutralSentiments}</p>
+          <p className="mb-0">No. of Negative Sentiments: {negativeSentiments}</p>
         </div>
       </div>
       <SortAndFilter
