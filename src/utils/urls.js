@@ -10,7 +10,7 @@ export const getRatingsReviewsUrl = ({
   sortOrder = 'DESC',
   filterByRating
 }) => {
-  let url = `${baseApiUrl}reviewAndRatings?entity_id=${entityId}&limit=${limit}&offset=${offset}&sort_key=${sortkey}&sort_order=${sortOrder}`;
+  let url = `${baseApiUrl}reviewAndRatings?entityId=${entityId}&limit=${limit}&offset=${offset}&sortKey=${sortkey}&sortOrder=${sortOrder}`;
   if (filterByRating) {
     url = `${url}&filterByRating=${filterByRating}`
   }

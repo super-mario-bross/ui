@@ -53,7 +53,7 @@ const useRatingsReviewsHook = ({ entityId }) => {
   const {
     reviewAndRatingsInfo: reviews = [],
     paginationInfo = {},
-    summaryData = []
+    summaryData = {}
   } = ratingsAndReviewResponseData;
 
   const onChangeFilter = (value) => {
@@ -72,7 +72,7 @@ const useRatingsReviewsHook = ({ entityId }) => {
       setFilterOffset
     },
     filterByRating,
-    basicInfo: summaryData[0]
+    basicInfo: summaryData
   };
 };
 
