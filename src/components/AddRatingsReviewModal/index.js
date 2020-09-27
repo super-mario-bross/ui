@@ -57,7 +57,8 @@ const AddRatingsReviewModal = ({ openModalButtonLabel, children }) => {
             </Box>
           </Button>
           </div>
-          {children}
+          {/* {children} */}
+          {React.cloneElement(children, { closeModal })}
         </div>
       </Modal>
     </div>

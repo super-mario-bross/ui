@@ -16,7 +16,8 @@ import { getPostRatingsReviewsUrl } from '../../utils/urls';
 import { doPost } from '../../utils/Fetch/Fetch';
 
 const AddReviewRatingsForm = ({
-  entity
+  entity,
+  closeModal
   // options, value, onChangeFilter
 }) => {
   const [author, setAuthor] = useState('');
@@ -42,6 +43,8 @@ const AddReviewRatingsForm = ({
     };
     const options = {};
     await doPost(url, body, options);
+    closeModal();
+    window.location.reload();
   };
 
   const validateFields = (fields) => {
@@ -138,11 +141,12 @@ const AddReviewRatingsForm = ({
 
 
 AddReviewRatingsForm.propTypes = {
-  entity: PropTypes.string.isRequired
+  entity: PropTypes.string.isRequired,
+  closeModal: PropTypes.func
 };
 
 AddReviewRatingsForm.defaultProps = {
-  entity: '111'
+  entity: '111',
+  closeModal: () => {}
 };
-
 export default AddReviewRatingsForm;
