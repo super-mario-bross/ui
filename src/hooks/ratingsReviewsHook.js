@@ -38,14 +38,14 @@ const getSortValues = (filter) => {
 }
 
 const useRatingsReviewsHook = ({ entityId }) => {
-  const [currentFilter, setFilter] = useState(filterDisplayValues[filterDisplayValues.length - 1]);
-  const [filterByRating, setFilterByRating] = useState(5);
+  const [currentFilter, setFilter] = useState(filterDisplayValues[filterDisplayValues.length - 6]);
+  const filterByRating = getSortValues(currentFilter);
   const [offset, setFilterOffset] = useState(0);
   const currentSortValue = getSortValues(currentFilter);
   const ratingsAndReviewResponseData = fetchReviewsAndRatings({
     entityId,
     offset,
-    filterByRating,
+    filterByRating: filterByRating.filterByRating,
     sortkey: currentSortValue.sort_key,
     sortOrder: currentSortValue.sort_order
   });
@@ -72,7 +72,6 @@ const useRatingsReviewsHook = ({ entityId }) => {
       setFilterOffset
     },
     filterByRating,
-    setFilterByRating,
     basicInfo: summaryData[0]
   };
 };

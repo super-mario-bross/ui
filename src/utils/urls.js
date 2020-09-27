@@ -8,9 +8,13 @@ export const getRatingsReviewsUrl = ({
   offset = 1,
   sortkey = 'rating',
   sortOrder = 'DESC',
-  filterByRating = 5
+  filterByRating
 }) => {
-  return `${baseApiUrl}reviewAndRatings?entity_id=${entityId}&limit=${limit}&offset=${offset}&sort_key=${sortkey}&sort_order=${sortOrder}&filterByRating=${filterByRating}`;
+  let url = `${baseApiUrl}reviewAndRatings?entity_id=${entityId}&limit=${limit}&offset=${offset}&sort_key=${sortkey}&sort_order=${sortOrder}`;
+  if (filterByRating) {
+    url = `${url}&filterByRating=${filterByRating}`
+  }
+  return url;
 };
 
 

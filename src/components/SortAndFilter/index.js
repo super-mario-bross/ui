@@ -13,7 +13,7 @@ const SortAndFilter = ({
 
         </div>
         <div className="col-6 text-right">
-          <span className="sort-by-label">Sort By:</span>
+          <span className="sort-by-label">Sort By & Filter:</span>
             <Select
               id="select"
               name="select"

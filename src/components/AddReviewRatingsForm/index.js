@@ -120,9 +120,9 @@ const AddReviewRatingsForm = ({
                   <TextInput name="author" value={author} onChange={event => setAuthor(event.target.value)} />
                 </FormField>
 
-                <FormField label="Email" name="email" required>
+                {/* <FormField label="Email" name="email" required>
                   <TextInput name="email" type="email" value={email} onChange={event => setEmail(event.target.value)} />
-                </FormField>
+                </FormField> */}
 
                 <Box direction="row" justify="between" margin={{ top: 'medium' }}>
                   <Button type="submit" label="Post feedback" primary />

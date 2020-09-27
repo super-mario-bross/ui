@@ -33,7 +33,6 @@ const doPost = async (url, body, options) => {
       },
       ...options,
     });
-
     const data = await (response.headers
       .get(['content-type'])
       .includes('application/json')
