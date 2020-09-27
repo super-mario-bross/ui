@@ -23,3 +23,7 @@ export const getPostRatingsReviewsUrl = (
 ) => {
   return `${baseApiUrl}reviewAndRatings`;
 };
+
+export const getUpdateReviewByUsersReactionUrl = () => {
+  return `${baseApiUrl}reviewAndRatings/updateReviewByUsersReaction`;
+};
